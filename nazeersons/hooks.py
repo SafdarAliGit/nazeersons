@@ -5,6 +5,11 @@ app_description = "this is for naseer sons"
 app_email = "safdar211@gmail.com"
 app_license = "mit"
 
+
+app_include_css = "/assets/nazeersons/css/custom_button_colors.css"
+doctype_js = {"Item" : "public/js/item.js"}
+required_apps = ["erpnext"]
+
 # Apps
 # ------------------
 

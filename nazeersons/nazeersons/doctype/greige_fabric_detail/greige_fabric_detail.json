@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-30 20:03:03.788586",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lot",
+  "fabric_item",
+  "qty_available",
+  "qty_issue"
+ ],
+ "fields": [
+  {
+   "fetch_from": "lot.item",
+   "fieldname": "fabric_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fabric Item",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lot",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "LOT #",
+   "options": "Batch"
+  },
+  {
+   "default": "0",
+   "fetch_from": "lot.batch_qty",
+   "fieldname": "qty_available",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty Available",
+   "precision": "4",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qty_issue",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty Issue",
+   "precision": "4"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-05 18:29:09.647509",
+ "modified_by": "Administrator",
+ "module": "Nazeersons",
+ "name": "Greige Fabric Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
