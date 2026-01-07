@@ -1,11 +1,11 @@
 frappe.ui.form.on("Item", {
     refresh(frm) {
         
-    frm.fields_dict['custom_item_recipe'].grid.get_field('item').get_query = function() {
-                 return {
-                    query: 'nazeersons.nazeersons.utils.recipe_items_filter.recipe_items_filter'
-                 };
-            };
+    // frm.fields_dict['custom_item_recipe'].grid.get_field('item').get_query = function() {
+    //              return {
+    //                 query: 'nazeersons.nazeersons.utils.recipe_items_filter.recipe_items_filter'
+    //              };
+    //         };
         
 
         }
