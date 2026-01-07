@@ -19,13 +19,13 @@ frappe.ui.form.on('Job Card Production', {
         }
         
 
-        frm.set_query("finish_item", function () {
-            return {
-                filters: [
-                    ["item_group", "=", "Products"]
-                ]
-            };
-        });
+        // frm.set_query("finish_item", function () {
+        //     return {
+        //         filters: [
+        //             ["item_group", "=", "Products"]
+        //         ]
+        //     };
+        // });
     },
 	finish_item:function(frm){
 		fetch_chemicals_and_dyes(frm);
