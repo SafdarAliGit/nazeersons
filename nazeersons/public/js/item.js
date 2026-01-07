@@ -11,38 +11,38 @@ frappe.ui.form.on("Item", {
         });
         
         // Add validation when item is selected
-        frm.fields_dict['custom_item_recipe'].grid.wrapper.on('grid-row-render', function(e, grid_row) {
-            let item_field = grid_row.get_field('item');
-            if (item_field) {
-                item_field.df.onchange = function() {
-                    if (this.value) {
-                        frappe.db.get_value('Item', this.value, 'item_group')
-                            .then(r => {
-                                if (r.message) {
-                                    // Check if item group is under Raw Material
-                                    frappe.call({
-                                        method: 'frappe.client.get_list',
-                                        args: {
-                                            doctype: 'Item Group',
-                                            filters: [
-                                                ['name', '=', r.message.item_group],
-                                                ['name', 'descendants of', 'Raw Material']
-                                            ],
-                                            limit: 1
-                                        },
-                                        callback: function(response) {
-                                            if (!response.message || response.message.length === 0) {
-                                                frappe.msgprint(__('Only Raw Material items are allowed'));
-                                                frappe.model.set_value(grid_row.doctype, grid_row.docname, 'item', '');
-                                            }
-                                        }
-                                    });
-                                }
-                            });
-                    }
-                };
-            }
-        });
+        // frm.fields_dict['custom_item_recipe'].grid.wrapper.on('grid-row-render', function(e, grid_row) {
+        //     let item_field = grid_row.get_field('item');
+        //     if (item_field) {
+        //         item_field.df.onchange = function() {
+        //             if (this.value) {
+        //                 frappe.db.get_value('Item', this.value, 'item_group')
+        //                     .then(r => {
+        //                         if (r.message) {
+        //                             // Check if item group is under Raw Material
+        //                             frappe.call({
+        //                                 method: 'frappe.client.get_list',
+        //                                 args: {
+        //                                     doctype: 'Item Group',
+        //                                     filters: [
+        //                                         ['name', '=', r.message.item_group],
+        //                                         ['name', 'descendants of', 'Raw Material']
+        //                                     ],
+        //                                     limit: 1
+        //                                 },
+        //                                 callback: function(response) {
+        //                                     if (!response.message || response.message.length === 0) {
+        //                                         frappe.msgprint(__('Only Raw Material items are allowed'));
+        //                                         frappe.model.set_value(grid_row.doctype, grid_row.docname, 'item', '');
+        //                                     }
+        //                                 }
+        //                             });
+        //                         }
+        //                     });
+        //             }
+        //         };
+        //     }
+        // });
     }
 });
 
