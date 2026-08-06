@@ -10,6 +10,13 @@ app_include_css = "/assets/nazeersons/css/custom_button_colors.css"
 doctype_js = {"Item" : "public/js/item.js"}
 required_apps = ["erpnext"]
 
+
+doc_events = {
+    "Sales Invoice": {
+        "before_validate": "nazeersons.nazeersons.utils.clamp_consolidated_return_rates.clamp_consolidated_return_rates"
+    }
+}
+
 # Apps
 # ------------------
 
